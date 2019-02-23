@@ -1,5 +1,5 @@
 {
-  "name": "react-graphql-spacex-missions",
+  "name": "react-graphql-spacex-missions-server",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
