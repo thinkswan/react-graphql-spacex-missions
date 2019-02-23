@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
+import Launch from './Launch'
 
 const LAUNCHES_QUERY = gql`
   query LaunchesQuery {
@@ -16,7 +17,7 @@ const LAUNCHES_QUERY = gql`
 export default class Launches extends Component {
   render () {
     return (
-      <div>
+      <Fragment>
         <h1 className="display-4 my-3">Launches</h1>
 
         <Query query={LAUNCHES_QUERY}>
@@ -25,13 +26,19 @@ export default class Launches extends Component {
               if (loading) return <h4>Loading...</h4>
               if (error) console.log(error)
 
-              console.log(data);
-
-              return <h1>Test</h1>
+              return (
+                <Fragment>
+                  {
+                    data.launches.map(launch => (
+                      <Launch key={launch.flight_number} launch={launch} />
+                    ))
+                  }
+                </Fragment>
+              )
             }
           }
         </Query>
-      </div>
+      </Fragment>
     )
   }
 }
