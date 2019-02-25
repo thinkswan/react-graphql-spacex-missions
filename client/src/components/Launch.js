@@ -1,8 +1,8 @@
-import React, { Component, Fragment } from "react";
-import gql from "graphql-tag";
-import { Query } from "react-apollo";
-import { Link } from "react-router-dom";
-import classNames from "classnames";
+import React, { Component, Fragment } from "react"
+import gql from "graphql-tag"
+import { Query } from "react-apollo"
+import { Link } from "react-router-dom"
+import classNames from "classnames"
 
 const LAUNCH_QUERY = gql`
   query LaunchQuery($flight_number: Int!) {
@@ -19,19 +19,19 @@ const LAUNCH_QUERY = gql`
       }
     }
   }
-`;
+`
 
 export class Launch extends Component {
   render() {
-    let { flight_number } = this.props.match.params;
-    flight_number = parseInt(flight_number);
+    let { flight_number } = this.props.match.params
+    flight_number = parseInt(flight_number)
 
     return (
       <Fragment>
         <Query query={LAUNCH_QUERY} variables={{ flight_number }}>
           {({ loading, error, data }) => {
-            if (loading) return <h4>Loading...</h4>;
-            if (error) console.log(error);
+            if (loading) return <h4>Loading...</h4>
+            if (error) console.log(error)
 
             const {
               mission_name,
@@ -39,7 +39,7 @@ export class Launch extends Component {
               launch_year,
               launch_success,
               rocket: { rocket_id, rocket_name, rocket_type }
-            } = data.launch;
+            } = data.launch
 
             return (
               <div>
@@ -85,12 +85,12 @@ export class Launch extends Component {
                   Back
                 </Link>
               </div>
-            );
+            )
           }}
         </Query>
       </Fragment>
-    );
+    )
   }
 }
 
-export default Launch;
+export default Launch
