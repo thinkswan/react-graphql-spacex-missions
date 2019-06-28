@@ -1,7 +1,7 @@
 {
   "name": "react-graphql-spacex-missions-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "A React app that uses Apollo and GraphQL to fetch SpaceX missions.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -9,7 +9,7 @@
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "author": "",
+  "author": "Graham Swan <thinkswan@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
